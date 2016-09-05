@@ -112,6 +112,8 @@ iSDK.prototype.dsLoad = function (tableName, id, rFields, callback) {
 	if (isNaN(id)) return callback(new Error('id should be an integer'));
 
 	var ca = [this.apiKey, tableName];
+	
+	ca.push(id);
 
 	// if rFields is a function, it is actually callback
 	// if rFields is an array, it is rFields
@@ -122,8 +124,6 @@ iSDK.prototype.dsLoad = function (tableName, id, rFields, callback) {
 			rFields = undefined;
 		} else return callback(new Error('rFields should be an Array'));
 	} else ca.push(rFields);
-
-	ca.push(id);
 
 	this.methodCaller('DataService.load', ca, callback);
 };
