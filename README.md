@@ -33,6 +33,8 @@ var client = new iSDK('app_name', 'api_key');
 
 **APIEmailService.sendEmail**: ```client.sendEmail(contactList, fromAddr, toAddr, ccAddr, bccAddr, contentType, subject, html, text, templateId, callback)```
 
+**APIEmailService.sendTemplate**: ```client.sendTemplate(contactList, templateId, callback)```
+
 
 
 **ContactService.add**: ```client.addCon(contactData, callback)```
