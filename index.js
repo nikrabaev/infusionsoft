@@ -134,12 +134,13 @@ iSDK.prototype.dsFind = function (tableName, limit, page, field, value, rFields,
 };
 
 iSDK.prototype.dsQuery = function (tableName, limit, page, query, rFields, orderBy, ascending, callback) {
+	var ca;
 	switch (arguments.length){
 		case 8:
-			var ca = [this.apiKey,tableName, limit, page, query, rFields, orderBy, ascending];
+			ca = [this.apiKey,tableName, limit, page, query, rFields, orderBy, ascending];
 			break;
 		case 6:
-			var ca = [this.apiKey,tableName, limit, page, query, rFields];
+			ca = [this.apiKey,tableName, limit, page, query, rFields];
 			callback = orderBy;
 			break;
 	}
@@ -216,6 +217,6 @@ iSDK.prototype.locateCard = function (contactId, lastFour, callback) {
 iSDK.prototype.fsGoal = function(integration, name, contactId, callback){
 	var ca = [this.apiKey, integration, name, contactId];
 	this.methodCaller('FunnelService.achieveGoal', ca, callback);
-}
+};
 
 iSDK.types = types;
