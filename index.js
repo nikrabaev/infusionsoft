@@ -197,6 +197,11 @@ iSDK.prototype.sendEmail = function (clist, fromAddr, toAddr, ccAddr, bccAddr, c
 	this.methodCaller('APIEmailService.sendEmail', ca, callback);
 };
 
+iSDK.prototype.sendTemplate = function (clist, templateId, callback) {
+    var ca = [this.apiKey, clist, templateId];
+    this.methodCaller('APIEmailService.sendEmail', ca, callback);
+};
+
 iSDK.prototype.optStatus = function (email, callback) {
 	var ca = [this.apiKey, email];
 	this.methodCaller('APIEmailService.getOptStatus', ca, callback);

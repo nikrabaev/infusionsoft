@@ -5,7 +5,6 @@ var path = require('path');
 var ISDK = require('../index.js');
 
 var Serializer = require('../node_modules/xmlrpc/lib/serializer');
-var DateFormatter = require('../node_modules/xmlrpc/lib/date_formatter');
 
 // override methodCaller to send serialized data through callback;
 ISDK.prototype.methodCaller = function(service, data, callback) {
@@ -213,6 +212,12 @@ vows.describe('ISDK Calls').addBatch({
         isdk.sendEmail([1],'test1@email.com','~Contact.Email~','test2@email.com','test3@email.com','Multipart','subject','<html />', 'text', 1, this.callback);
       },
       "must match xml": assertXml('sendEmail_call')
+    },
+    "sendTemplate": {
+      topic: function (isdk) {
+        isdk.sendTemplate([1], 123, this.callback);
+      },
+      "must match xml": assertXml('sendTemplate_call')
     },
     "optStatus": {
       topic: function (isdk) {
